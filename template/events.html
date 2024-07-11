@@ -1,0 +1,730 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Mirrored from templates.hibootstrap.com/sanu/default/events.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Nov 2023 10:02:10 GMT -->
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="stylesheet" href="{%static 'assets/css/bootstrap.min.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/meanmenu.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/owl.carousel.min.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/owl.theme.default.min.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/magnific-popup.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/flaticon.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/remixicon.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/odometer.min.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/aos.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/style.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/dark.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/responsive.css'%}">
+<link rel="icon" type="{%static 'image/png'%}" href="{%static 'assets/images/favicon.png'%}">
+<title>Karmayogi Institute of Technology
+    </title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+   
+   
+    <style>
+        .marquee-text {
+            font-size: 10px;
+            color: black;
+            padding-top:5px;
+            margin:-2px;
+        }
+        .marquee-text span {
+           
+            color: black;
+        }
+    </style>
+    {% if request.user.is_authenticated or request.user == profile.user %}
+    <marquee behavior="alternate" class="marquee-text"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <span><a href="index">{{user.username | capfirst}}</a>, a warm welcome to the KIT environment</span></marquee>
+</marquee>
+{%else%}
+<marquee behavior="alternate" class="marquee-text"><i class="fa fa-user-circle" aria-hidden="true"></i><span> Hello <a href="index">Guest</a>  warm welcome to the KIT environment</span>
+</marquee>
+{% endif %}
+<div class="preloader-area">
+<div class="spinner">
+<div class="inner">
+<div class="disc"></div>
+<div class="disc"></div>
+<div class="disc"></div>
+</div>
+</div>
+</div>
+
+
+<div class="top-header-area">
+
+
+<style>
+    #navigation-select option{
+        font-size: 18px; /* Adjust the font size as needed */
+    }
+</style>
+
+<div class="updates">
+    <select id="navigation-select" onchange="navigate()">
+        <option value="" hidden>Updates here</option>
+        <option value="index/home/suggestions/">Suggestions box</option>
+        <option value="index/home/suggestion-table/">Suggestion Table</option>
+        <option value="https://riteshmasal.pythonanywhere.com/signin#">Academics</option>
+        <option value="index">Alumni</option>
+    </select>
+</div>
+
+
+
+<script>  
+function navigate() {
+var selectElement = document.getElementById("navigation-select");
+var selectedOption = selectElement.options[selectElement.selectedIndex];
+var url = selectedOption.value;
+window.location.href = url;
+}
+
+</script>
+
+<div class="col-lg-6 col-md-6">
+<div class="header-right-content">
+
+
+</div>
+</div>
+</div>
+
+
+
+<div class="navbar-area nav-bg-2">
+<div class="mobile-responsive-nav">
+<div class="container">
+<div class="mobile-responsive-menu">
+<div class="logo">
+<a href="index-5.html">
+{% if request.user.is_authenticated or request.user == profile.user %}
+<a href="{% url 'profile' request.user %}">
+     
+    <img src="{{request.user.profile.image.url}}" alt="User Picture"  class="round-imagemain"></a>
+
+</a>
+{%else%}
+<a href="index">
+     
+<img src="{%static 'assets/img/defaudt.jpg'%}" alt="User Picture"  class="round-imagemain"></a>
+
+</a>
+{% endif %}
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+<div class="desktop-nav">
+<div class="container-fluid">
+<nav class="navbar navbar-expand-md navbar-light">
+
+
+{% if request.user.is_authenticated or request.user == profile.user %}
+<a href="{% url 'profile' request.user %}">
+     
+    <img src="{{request.user.profile.image.url}}" alt="User Picture"  class="round-imagemain2"></a>
+
+</a>
+{%else%}
+<a href="index">
+     
+<img src="{%static 'assets/img/defaudt.jpg'%}" alt="User Picture"  class="round-imagemain2"></a>
+
+</a>
+{% endif %}
+
+
+<style>
+.round-imagemain2{
+    width: 52px;
+    height : 52px;
+    border-radius: 50%;
+}
+.round-imagemain
+{
+    width: 35px;
+    height : 35px;
+    border-radius: 50%;
+}
+</style>
+
+<a class="navbar-brand" href="/">
+<img src="{%static 'assets/images/kit logo].png'%}" class="main-logo" alt="logo">
+<img src="{%static 'assets/images/kit logo white.png'%}" class="white-logo" alt="logo">
+</a>
+
+<!-- not add static  files -->
+<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<a href="" class="nav-link  active">
+Era
+</a>
+
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Pages
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="graduate-admission.htmlsuggestions/" class="nav-link">Graduate Admission</a>
+</li>
+<li class="nav-item">
+<a href="campus-life.html" class="nav-link">Campus Life</a>
+</li>
+<li class="nav-item">
+<a href="alumni.html" class="nav-link">Alumni</a>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Academics
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="academics.html" class="nav-link">Academics</a>
+</li>
+<li class="nav-item">
+<a href="academics-details.html" class="nav-link">Academics Details</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Latest News
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="latest-news.html" class="nav-link">Our Latest News</a>
+</li>
+<li class="nav-item">
+<a href="news-details.html" class="nav-link">News Details</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="faq.html" class="nav-link">FAQ</a>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Users
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="login.html" class="nav-link">Login</a>
+</li>
+<li class="nav-item">
+<a href="register.html" class="nav-link">Register</a>
+</li>
+<li class="nav-item">
+<a href="recover-password.html" class="nav-link">Recover Password</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+</li>
+<li class="nav-item">
+<a href="terms-conditions.html" class="nav-link">Terms And Conditions</a>
+</li>
+<li class="nav-item">
+<a href="coming-soon.html" class="nav-link">Coming Soon</a>
+</li>
+<li class="nav-item">
+<a href="404.html" class="nav-link">404 Page</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Courses
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="courses.html" class="nav-link">Courses</a>
+</li>
+<li class="nav-item">
+<a href="courses-details.html" class="nav-link">Courses Details</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Health Care
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="health-care.html" class="nav-link">Health Care</a>
+</li>
+<li class="nav-item">
+<a href="health-care-details.html" class="nav-link">Health Care Details</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Events
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="#" class="nav-link">Events</a>
+</li>
+<li class="nav-item">
+<a href="events-details.html" class="nav-link">Events Details</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="contact-us.html" class="nav-link">Contact Us</a>
+</li>
+</ul>
+<div class="others-options">
+<div class="icon">
+<i class="ri-menu-3-fill" data-bs-toggle="modal" data-bs-target="#sidebarModal"></i>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div class="others-option-for-responsive">
+<div class="container">
+<div class="dot-menu">
+<div class="inner">
+<div class="icon">
+<i class="ri-menu-3-fill" data-bs-toggle="modal" data-bs-target="#sidebarModal"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="sidebarModal modal right fade" id="sidebarModal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document"> 
+<div class="modal-content">
+{% if request.user.is_authenticated or request.user == profile.user %}
+ <a href="{% url 'profile' user %}" class="cursive-link"> hello_ {{user.username}}</a>
+ {% else %}
+ <a href="index" class="cursive-link"> <i class="fa fa-user-secret" aria-hidden="true"></i style="color:black;">Please_create_account</a>
+ {%endif%}
+
+<style>.cursive-link {
+font-family: cursive;
+}
+</style>
+<button type="button" class="close" data-bs-dismiss="modal"><i class="ri-close-line"></i></button>
+<div class="modal-body">
+
+<div class="sidebar-content">
+<h3>About Us</h3>
+<p>To empower students with essential technical skills for professional challenges, foster a supportive learning environment, ensure quality infrastructure and facilities, consider socio-economic factors, and consistently prepare students for success in competitive exams.</p>
+<div class="sidebar-btn">
+<a href="contact.html" class="default-btn">Let’s Talk</a>
+</div>
+</div>
+<div class="sidebar-contact-info">
+<h3>Contact Information</h3>
+<ul class="info-list">
+<li><i class="ri-phone-fill"></i> <a href="tel:9172353945">+91 9172353945</a></li>
+<li><i class="ri-mail-line"></i><a href="mailto:yalmarprasad123@gmail.com">yalmarprasad123@gmail.com</a>
+</li>
+<li><i class="ri-map-pin-line"></i> Gat No. 124/125,<br> A/P: Shelve, 
+    Tal: Pandharpur,
+    Dist: Solapur (Maharashtra)
+    Pin: 413304 Office Mobile: 9011043168</li>
+</ul>
+</div>
+<ul class="sidebar-social-list">
+<li>
+<a href="https://www.facebook.com/" target="_blank"><i class="flaticon-facebook"></i></a>
+</li>
+<li>
+<a href="https://www.twitter.com/" target="_blank"><i class="flaticon-twitter"></i></a>
+</li>
+<li>
+<a href="https://linkedin.com/?lang=en" target="_blank"><i class="flaticon-linkedin"></i></a>
+</li>
+<li>
+<a href="https://instagram.com/?lang=en" target="_blank"><i class="flaticon-instagram"></i></a>
+</li>
+{% comment %} </ul>
+<div class="contact-form">
+<h3>Ready to Get Started?</h3>
+<form id="contactForm">
+<div class="row">
+<div class="col-lg-12 col-md-6">
+<div class="form-group">
+<input type="text" name="name" class="form-control" required data-error="Please enter your name" placeholder="Your name">
+<div class="help-block with-errors"></div>
+</div>
+</div>
+<div class="col-lg-12 col-md-6">
+<div class="form-group">
+<input type="email" name="email" class="form-control" required data-error="Please enter your email" placeholder="Your email address">
+<div class="help-block with-errors"></div>
+</div>
+</div>
+<div class="col-lg-12 col-md-12">
+<div class="form-group">
+<input type="text" name="phone_number" class="form-control" required data-error="Please enter your phone number" placeholder="Your phone number">
+<div class="help-block with-errors"></div>
+</div>
+</div>
+<div class="col-lg-12 col-md-12">
+<div class="form-group">
+<textarea name="message" class="form-control" cols="30" rows="6" required data-error="Please enter your message" placeholder="Write your message..."></textarea>
+<div class="help-block with-errors"></div>
+</div>
+</div>
+<div class="col-lg-12 col-md-12">
+<button type="submit" class="default-btn">Send Message<span></span></button>
+<div id="msgSubmit" class="h3 text-center hidden"></div>
+<div class="clearfix"></div>
+</div>
+</div> 
+</form>
+</div>{% endcomment %}
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="page-banner-area bg-2">
+<div class="container">
+<div class="page-banner-content">
+<h1>Events</h1>
+<ul>
+<li><a href="/">Home</a></li>
+<li>Pages</li>
+<li>Events</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="events-area pt-100 pb-70">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-4 col-md-6">
+<div class="single-events-card style-4">
+<div class="events-image">
+<a href="events-details.html"><img src="{%static 'assets/images/events/events-1.jpg'%}" alt="Image"></a>
+<div class="date">
+<span>28</span>
+<p>Mar</p>
+</div>
+</div>
+<div class="events-content">
+<div class="admin">
+<p><a href="events-details.html"><i class="flaticon-student-with-graduation-cap"></i>Yogesh M</a></p>
+</div>
+<a href="events-details.html"><h3>Planning And Facilitating Effective Meetings</h3></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6">
+<div class="single-events-card style-4">
+<div class="events-image">
+<a href="events-details.html"><img src="{%static 'assets/images/events/events-2.jpg'%}" alt="Image"></a>
+<div class="date">
+<span>29</span>
+<p>Mar</p>
+</div>
+</div>
+<div class="events-content">
+<div class="admin">
+<p><a href="events-details.html"><i class="flaticon-student-with-graduation-cap"></i>Samek Shaikh</a></p>
+</div>
+<a href="events-details.html"><h3>Master the art of planning and facilitating effective meetings to drive productivity and collaboration.</h3></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6">
+<div class="single-events-card style-4">
+<div class="events-image">
+<a href="events-details.html"><img src="{%static 'assets/images/events/events-3.jpg'%}" alt="Image"></a>
+<div class="date">
+<span>30</span>
+<p>Mar</p>
+</div>
+</div>
+<div class="events-content">
+<div class="admin">
+<p><a href="events-details.html"><i class="flaticon-student-with-graduation-cap"></i>Samek Shaikh</a></p>
+</div>
+<a href="events-details.html"><h3>karmayogi institute of technology ruturang 2024
+</h3></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6">
+<div class="single-events-card style-4">
+<div class="events-image">
+<a href="events-details.html"><img src="{%static 'assets/images/events/events-4.jpg'%}" alt="Image"></a>
+<div class="date">
+<span>30</span>
+<p>Mar</p>
+</div>
+</div>
+<div class="events-content">
+<div class="admin">
+<p><a href="events-details.html"><i class="flaticon-student-with-graduation-cap"></i>Samek Shaikh</a></p>
+</div>
+<a href="events-details.html"><h3>Saturday Night Concert In Lake View,Pandharpur City [Shelve]</h3></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6">
+<div class="single-events-card style-4">
+<div class="events-image">
+<a href="events-details.html"><img src="{%static 'assets/images/events/events-5.jpg'%}" alt="Image"></a>
+<div class="date">
+<span>30</span>
+<p>Mar</p>
+</div>
+</div>
+<div class="events-content">
+<div class="admin">
+<p><a href="events-details.html"><i class="flaticon-student-with-graduation-cap"></i>Samek Shaikh</a></p>
+</div>
+<a href="events-details.html"><h3>The Complete Digital Marketing Course - 12 Courses In 1</h3></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6">
+<div class="single-events-card style-4">
+<div class="events-image">
+<a href="events-details.html"><img src="{%static 'assets/images/events/events-6.jpg'%}" alt="Image"></a>
+<div class="date">
+<span>30</span>
+<p>Mar</p>
+</div>
+</div>
+<div class="events-content">
+<div class="admin">
+<p><a href="events-details.html"><i class="flaticon-student-with-graduation-cap"></i>Samek Shaikh</a></p>
+</div>
+<a href="events-details.html"><h3>The Python Mega Course: Build 10 Real World Applications</h3></a>
+</div>
+</div>
+</div>
+</div>
+<div class="paginations">
+<ul>
+<li><a href="events-details.html"><i class="flaticon-back"></i></a></li>
+<li><a href="events-details.html">01</a></li>
+<li><a href="events-details.html">02</a></li>
+<li><a href="events-details.html">03</a></li>
+<li><a href="events.html" class="active"><i class="flaticon-next"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="footer-area pt-100 pb-70">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-4 col-sm-6">
+    <div class="footer-logo-area">
+    <a href="/"><img src="{%static 'assets/images/kit logo white.png'%}" alt="Image"></a>
+    <p>Karmayogi Engineering College, Shelve, Pandharpur, Pandharpur, India, Maharashtra</p>
+    <div class="contact-list">
+    <ul>
+    <li><a href="tel:+919172353945">+91-9172353945
+    </a></li>
+    <li><a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#8eefeae3e7e0cefdefe0fba0ebeafb"><span class="__cf_email__" data-cfemail="accdc8c1c5c2ecdfcdc2d982c9c8d9">[email&#160;protected]</span></a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+    <div class="footer-widjet">
+    <h3>Campus Life</h3>
+    <div class="list">
+    <ul>
+    <li><a href="campus-life.html">Accessibility</a></li>
+    <li><a href="campus-life.html">Financial Aid</a></li>
+    <li><a href="campus-life.html">Food Services</a></li>
+    <li><a href="campus-life.html">Housing</a></li>
+    <li><a href="campus-life.html">Information Technologies</a></li>
+    <li><a href="campus-life.html">Student Life</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+    <div class="footer-widjet">
+    <h3>Our Campus</h3>
+    <div class="list">
+    <ul>
+    <li><a href="campus-life.html">Acedemic</a></li>
+    <li><a href="campus-life.html">Planning & AdminiStartion</a></li>
+    <li><a href="campus-life.html">Campus Safety</a></li>
+    <li><a href="campus-life.html">Office of the Chancellor</a></li>
+    <li><a href="campus-life.html">Facility Services</a></li>
+    <li><a href="campus-life.html">Human Resources</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-2 col-sm-6">
+    <div class="footer-widjet"> 
+    <h3>Academics</h3>
+    <div class="list">
+    <ul>
+    <li><a href="academics.html"> Courses</a></li>
+    <li><a href="academics.html">Projects</a></li>
+    <li><a href="academics.html">Research</a></li>
+    <li><a href="academics.html">Workshops</a></li>
+    <li><a href="academics.html">Subjects</a></li>
+    <li><a href="academics.html">Major Projects</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="shape">
+    <img src="{%static 'assets/images/shape-1.png'%}" alt="Image">
+    </div>
+    </div>
+    </div>
+    
+    
+    <div class="copyright-area">
+    <div class="container">
+    <div class="copyright">
+    <div class="row">
+    <div class="col-lg-6 col-md-4">
+    <div class="social-content">
+    <ul>
+    <li><span>Follow Us On</span></li>
+    <li>
+    <a href="https://www.facebook.com/kecsp/" target="_blank"><i class="ri-facebook-fill"></i></a>
+    </li>
+    <li>
+    <a href="https://www.facebook.com/kecsp/" target="_blank"><i class="ri-twitter-fill"></i></a>
+    </li>
+    <li>
+    <a href="https://www.facebook.com/kecsp/" target="_blank"><i class="ri-instagram-line"></i></a>
+    </li>
+    <li>
+    <a href="https://www.facebook.com/kecsp/" target="_blank"><i class="ri-linkedin-fill"></i></a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-lg-6 col-md-8">
+    <div class="copy">
+    <p>© This website made by <a href="https://mipashyayalmar.github.io/-Profile-data/" target="_blank">Mipashya</a></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div class="go-top">
+    <i class="ri-arrow-up-s-line"></i>
+    <i class="ri-arrow-up-s-line"></i>
+    </div>
+    
+    
+    
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{%static 'assets/js/jquery.min.js'%}"></script>
+    
+    <script src="{%static 'assets/js/bootstrap.bundle.min.js'%}"></script>
+    
+    <script src="{%static 'assets/js/jquery.meanmenu.js'%}"></script>
+    
+    <script src="{%static 'assets/js/owl.carousel.min.js'%}"></script>
+    
+    <script src="{%static 'assets/js/carousel-thumbs.min.js'%}"></script>
+    
+    <script src="{%static 'assets/js/jquery.magnific-popup.js'%}"></script>
+    
+    <script src="{%static 'assets/js/aos.js'%}"></script>
+    
+    <script src="{%static 'assets/js/odometer.min.js'%}"></script>
+    
+    <script src="{%static 'assets/js/appear.min.js'%}"></script>
+    
+    <script src="{%static 'assets/js/form-validator.min.js'%}"></script>
+    
+    <script src="{%static 'assets/js/contact-form-script.js'%}"></script>
+    
+    <script src="{%static 'assets/js/ajaxchimp.min.js'%}"></script>
+    
+    <script src="{%static 'assets/js/custom.js'%}"></script>
+    <!-- for alumini photos revies -->
+    <style>
+    .round-image {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        object-fit: cover; 
+    }
+    .updates{
+        background-color: transparent;
+    }
+    
+    .updates select {
+      background-color: transparent; /* Set select background color to transparent */
+      border: none; /* Remove border */
+      padding: 5px 10px; /* Adjust padding as needed */
+      color: #333; /* Set text color */
+      font-size: 16px; /* Set font size */
+      cursor: pointer; /* Change cursor to hand pointer */
+      font-family: algerian; 
+    }
+    
+    .updates select option {
+        background-color: transparent;
+        font-size: 10px;
+        font-family:script mt bold; 
+        cursor: hand;
+      
+     
+      
+    }
+    
+    
+        
+    </style>
+    </body>
+    
+    </html>
+    <!-- home.html -->
+    

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Suggestions Table</title>
+</head>
+<body>
+    <h1>Student Suggestions Table</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Subject</th>
+                <th>About</th>
+                <th>Added Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for suggestion in suggestions %}
+            <tr>
+                <td>{{ suggestion.f_name }}</td>
+                <td>{{ suggestion.email }}</td>
+                <td>{{ suggestion.phone }}</td>
+                <td>{{ suggestion.subject }}</td>
+                <td>{{ suggestion.about }}</td>
+                <td>{{ suggestion.added_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <p><a href="{% url 'suggestion_list' %}">Back to Suggestions List</a></p>
+    <p><a href="/">Back to Suggestions List</a></p>
+</body>
+</html>

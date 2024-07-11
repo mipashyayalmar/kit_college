@@ -1,0 +1,1429 @@
+
+{%load static%}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{%static 'assets/css/bootstrap.min.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/meanmenu.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/owl.carousel.min.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/owl.theme.default.min.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/magnific-popup.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/flaticon.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/remixicon.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/odometer.min.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/aos.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/style.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/dark.css'%}">
+
+<link rel="stylesheet" href="{%static 'assets/css/responsive.css'%}">
+<link rel="icon" type="{%static 'image/png'%}" href="{%static 'assets/images/favicon.png'%}">
+<title>Karmayogi Institute of Technology
+    </title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+   
+   
+        <style>
+            .marquee-text {
+                font-size: 10px;
+                color: black;
+                padding-top:5px;
+                margin:-2px;
+            }
+            .marquee-text span {
+               
+                color: black;
+            }
+        </style>
+        {% if request.user.is_authenticated or request.user == profile.user %}
+        <marquee behavior="alternate" class="marquee-text"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <span><a href="index">{{user.username | capfirst}}</a>, a warm welcome to the KIT environment</span></marquee>
+    </marquee>
+    {%else%}
+    <marquee behavior="alternate" class="marquee-text"><i class="fa fa-user-circle" aria-hidden="true"></i><span> Hello <a href="index">Guest</a>  warm welcome to the KIT environment</span>
+    </marquee>
+{% endif %}
+<div class="preloader-area">
+<div class="spinner">
+<div class="inner">
+<div class="disc"></div>
+<div class="disc"></div>
+<div class="disc"></div>
+</div>
+</div>
+</div>
+
+
+<div class="top-header-area">
+
+
+    <style>
+        #navigation-select option{
+            font-size: 18px; 
+        }
+    </style>
+    
+    <div class="updates">
+        <select id="navigation-select" onchange="navigate()">
+            <option value="" hidden>Updates here</option>
+            <option value=/suggestions><p>Suggestions box</p></option>
+            <option value="suggestion-table/">Suggestion Table</option>
+            <option value="https://riteshmasal.pythonanywhere.com/signin#">Academics</option>
+            <option value="index">Alumni</option>
+        </select>
+    </div>    
+   
+<style>
+   
+.updates {
+    font-size: 16px; 
+}
+
+
+@media only screen and (max-width: 750px) {
+    .updates  {
+        font-size: 12px; 
+    }
+    .updates select option {
+        background-color: transparent;
+        font-size: 10px;
+        font-family:script mt bold; 
+        cursor: hand;
+      
+     
+      
+    }
+}
+
+</style>
+
+    <script>  
+    function navigate() {
+    var selectElement = document.getElementById("navigation-select");
+    var selectedOption = selectElement.options[selectElement.selectedIndex];
+    var url = selectedOption.value;
+    window.location.href = url;
+}
+
+    </script>
+
+<div class="col-lg-6 col-md-6">
+<div class="header-right-content">
+
+
+</div>
+</div>
+</div>
+
+
+
+<div class="navbar-area nav-bg-2">
+<div class="mobile-responsive-nav">
+<div class="container">
+<div class="mobile-responsive-menu">
+<div class="logo">
+<a href="index-5.html">
+    {% if request.user.is_authenticated or request.user == profile.user %}
+    <a href="{% url 'profile' request.user %}">
+         
+        <img src="{{request.user.profile.image.url}}" alt="User Picture"  class="round-imagemain"></a>
+  
+</a>
+{%else%}
+<a href="index">
+         
+    <img src="{%static 'assets/img/defaudt.jpg'%}" alt="User Picture"  class="round-imagemain"></a>
+
+</a>
+{% endif %}
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+<div class="desktop-nav">
+<div class="container-fluid">
+<nav class="navbar navbar-expand-md navbar-light">
+
+  
+    {% if request.user.is_authenticated or request.user == profile.user %}
+    <a href="{% url 'profile' request.user %}">
+         
+        <img src="{{request.user.profile.image.url}}" alt="User Picture"  class="round-imagemain2"></a>
+  
+</a>
+{%else%}
+<a href="index">
+         
+    <img src="{%static 'assets/img/defaudt.jpg'%}" alt="User Picture"  class="round-imagemain2"></a>
+
+</a>
+{% endif %}
+
+
+<style>
+    .round-imagemain2{
+        width: 52px;
+        height : 52px;
+        border-radius: 50%;
+    }
+    .round-imagemain
+    {
+        width: 35px;
+        height : 35px;
+        border-radius: 50%;
+    }
+</style>
+
+<a class="navbar-brand" href="/">
+<img src="{%static 'assets/images/kit logo].png'%}" class="main-logo" alt="logo">
+<img src="{%static 'assets/images/kit logo white.png'%}" class="white-logo" alt="logo">
+</a>
+
+<!-- not add static  files -->
+<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<a href="" class="nav-link  active">
+Era
+</a>
+
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Pages
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="graduate-admission.htmlsuggestions/" class="nav-link">Graduate Admission</a>
+</li>
+<li class="nav-item">
+<a href="campus-life.html" class="nav-link">Campus Life</a>
+</li>
+<li class="nav-item">
+<a href="alumni.html" class="nav-link">Alumni</a>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Academics
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="academics.html" class="nav-link">Academics</a>
+</li>
+<li class="nav-item">
+<a href="academics-details.html" class="nav-link">Academics Details</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Latest News
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="latest-news.html" class="nav-link">Our Latest News</a>
+</li>
+<li class="nav-item">
+<a href="news-details.html" class="nav-link">News Details</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="faq.html" class="nav-link">FAQ</a>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Users
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="login.html" class="nav-link">Login</a>
+</li>
+<li class="nav-item">
+<a href="register.html" class="nav-link">Register</a>
+</li>
+<li class="nav-item">
+<a href="recover-password.html" class="nav-link">Recover Password</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+</li>
+<li class="nav-item">
+<a href="terms-conditions.html" class="nav-link">Terms And Conditions</a>
+</li>
+<li class="nav-item">
+<a href="coming-soon.html" class="nav-link">Coming Soon</a>
+</li>
+<li class="nav-item">
+<a href="404.html" class="nav-link">404 Page</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Courses
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="courses.html" class="nav-link">Courses</a>
+</li>
+<li class="nav-item">
+<a href="courses-details.html" class="nav-link">Courses Details</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Health Care
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="health-care.html" class="nav-link">Health Care</a>
+</li>
+<li class="nav-item">
+<a href="health-care-details.html" class="nav-link">Health Care Details</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="#" class="nav-link dropdown-toggle">
+Events
+</a>
+<ul class="dropdown-menu">
+<li class="nav-item">
+<a href="events/" class="nav-link">Events</a>
+</li>
+<li class="nav-item">
+<a href="events-details.html" class="nav-link">Events Details</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="contact-us.html" class="nav-link">Contact Us</a>
+</li>
+</ul>
+<div class="others-options">
+<div class="icon">
+<i class="ri-menu-3-fill" data-bs-toggle="modal" data-bs-target="#sidebarModal"></i>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div class="others-option-for-responsive">
+<div class="container">
+<div class="dot-menu">
+<div class="inner">
+<div class="icon">
+<i class="ri-menu-3-fill" data-bs-toggle="modal" data-bs-target="#sidebarModal"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="sidebarModal modal right fade" id="sidebarModal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document"> 
+<div class="modal-content">
+    {% if request.user.is_authenticated or request.user == profile.user %}
+     <a href="{% url 'profile' user %}" class="cursive-link"> hello_ {{user.username}}</a>
+     {% else %}
+     <a href="index" class="cursive-link"> <i class="fa fa-user-secret" aria-hidden="true"></i style="color:black;">Please_create_account</a>
+     {%endif%}
+
+<style>.cursive-link {
+    font-family: cursive;
+  }
+  </style>
+<button type="button" class="close" data-bs-dismiss="modal"><i class="ri-close-line"></i></button>
+<div class="modal-body">
+<a href="/">
+<img src="{%static 'assets/images/kit logo].png'%}" class="main-logo" alt="logo">
+<img src="{%static 'assets/images/white-logo.png'%}" class="white-logo" alt="logo">
+</a>
+<div class="sidebar-content">
+    
+
+ 
+<h3>About Us</h3>
+<p>To empower students with essential technical skills for professional challenges, foster a supportive learning environment, ensure quality infrastructure and facilities, consider socio-economic factors, and consistently prepare students for success in competitive exams.</p>
+<div class="sidebar-btn">
+<a href="contact.html" class="default-btn">Let’s Talk</a>
+</div>
+</div>
+<div class="sidebar-contact-info">
+<h3>Contact Information</h3>
+<ul class="info-list">
+<li><i class="ri-phone-fill"></i> <a href="tel:9172353945">+917-235-3945</a></li>
+<li><i class="ri-mail-line"></i><a href="mailto:yalmarprasad123@gmail.com">yalmarprasad123@gmail.com</a>
+</li>
+<li><i class="ri-map-pin-line"></i>Gat No. 124/125,<br> A/P: Shelve, 
+    Tal: Pandharpur,
+    Dist: Solapur (Maharashtra)
+    Pin: 413304 Office Mobile: 9011043168</li>
+</ul>
+</div>
+<ul class="sidebar-social-list">
+<li>
+<a href="https://www.facebook.com/" target="_blank"><i class="flaticon-facebook"></i></a>
+</li>
+<li>
+<a href="https://www.twitter.com/" target="_blank"><i class="flaticon-twitter"></i></a>
+</li>
+<li>
+<a href="https://linkedin.com/?lang=en" target="_blank"><i class="flaticon-linkedin"></i></a>
+</li>
+<li>
+<a href="https://instagram.com/?lang=en" target="_blank"><i class="flaticon-instagram"></i></a>
+</li>
+</ul>
+<div class="contact-form">
+<h3>Ready to Get Started?</h3>
+
+
+
+    <form method="post" enctype="multipart/form-data"  id="contactForm">
+        {% csrf_token %}
+    <div class="row">
+    <div class="col-lg-12 col-md-6">
+    <div class="form-group">
+    <input type="text" name="first_name" class="form-control" required data-error="Please enter your name" placeholder="Your name">
+    <div class="help-block with-errors"></div>
+    </div>
+    </div>
+    
+    <div class="col-lg-12 col-md-6">
+    <div class="form-group">
+    <input type="email" name="email" class="form-control" required data-error="Please enter your email" placeholder="Your email address">
+    <div class="help-block with-errors"></div>
+    </div>
+    </div>
+    
+    <div class="col-lg-12 col-md-12">
+    <div class="form-group">
+    <input type="text" name="phone" class="form-control" required data-error="Please enter your phone number" placeholder="Your phone number">
+    <div class="help-block with-errors"></div>
+    </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group">
+            <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+        </div>
+    </div>
+    
+    <div class="col-lg-12 col-md-12">
+    <div class="form-group">
+    <textarea name="about" class="form-control" cols="30" rows="6" required data-error="Please enter your message" placeholder="Write your message..."></textarea>
+    <div class="help-block with-errors"></div>
+    </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+    <button type="submit" class="default-btn">Send Message<span></span></button>
+    <div id="msgSubmit" class="h3 text-center hidden"></div>
+    <div class="clearfix"></div>
+    </div>
+    </div>
+    </form>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="banner-area banner-area-five">
+<video loop muted autoplay poster="#" class="background-video">
+<source src="{%static 'assets/images/the-hague-27994.mp4'%}" type="video/mp4">
+</video>
+<div class>
+<div class="slider-item">
+<div class="container-fluid">
+<div class="slider-content">
+<h1>Connect and Cultivate Your Skills and Talents with KIT</h1>
+<p>KIT was established in 2008 by the late Honorable Karmayogi Shri Sudhakar Pant Paricharak, an eminent industrialist committed to the noble cause of education. It caters to the educational needs of more than 7000 students and is continuously expanding to cope with the growing demands in the field of technical education.</p>
+
+{% if request.user.is_authenticated or request.user == profile.user %}
+<a href="{% url 'profile' request.user %}" class="default-btn btn"> Set Up Your New Account <i class="flaticon-next"></i></a>
+{% else %}
+<a href="index" class="default-btn btn"><i class="fa fa-user" aria-hidden="true"></i> Set Up Your New Account <i class="flaticon-next"></i></a>
+{% endif %}
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="campus-information-area pt-100 pb-70">
+<div class="container">
+<div class="row">
+<div class="col-lg-6" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
+<div class="campus-content">
+<div class="campus-title">
+<h2>Campus Information</h2>
+<p>Established in 2008, KIT offers undergraduate degrees in Civil, Computer, Electrical, Information Technology, Electronics & Telecommunication, and Mechanical Engineering, along with postgraduate courses. With experienced staff, spacious classrooms, and modern facilities, KIT provides an excellent academic atmosphere, making it a top engineering college in Shelve, Pandharpur.</p>
+</div>
+<div class="list">
+<div class="row">
+<div class="col-lg-6">
+<ul>
+<li>
+<i class="ri-check-fill"></i>
+<p>Graduate Programs</p>
+</li>
+<li>
+<i class="ri-check-fill"></i>
+<p>Programs</p>
+</li>
+<li>
+<i class="ri-check-fill"></i>
+<p>Engineering Degrees</p>
+</li>
+<li>
+<i class="ri-check-fill"></i>
+<p>Alumni & Giving</p>
+</li>
+</ul>
+</div>
+<div class="col-lg-6">
+<ul>
+<li>
+<i class="ri-check-fill"></i>
+<p>Undergraduate</p>
+</li>
+<li>
+<i class="ri-check-fill"></i>
+<p>State Level Sports</p>
+</li>
+<li>
+<i class="ri-check-fill"></i>
+<p>Diploma Degrees</p>
+</li>
+<li>
+<i class="ri-check-fill"></i>
+<p>11<sup>th</sup> 12<sup>th</sup> CBSC class</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="counter">
+<div class="row">
+<div class="col-lg-4 col-4">
+<div class="counter-card">
+<h1>
+<span class="odometer" data-count="15">00</span>
+<span class="target">+</span>
+</h1>
+<p>Years Of Experience</p>
+</div>
+</div>
+<div class="col-lg-4 col-4">
+<div class="counter-card">
+<h1>
+<span class="odometer" data-count="30">00</span>
+<span class="target heading-color">k</span><span class="target">+</span>
+</h1>
+<p>State Level Students</p>
+</div>
+</div>
+<div class="col-lg-4 col-4">
+<div class="counter-card">
+<h1>
+<span class="odometer" data-count="5">00</span>
+<span class="target heading-color">k</span><span class="target">+</span>
+</h1>n_list
+<p>Student Review</p>
+</div>
+</div>
+</div>
+</div>
+<a href="campus-life.html" class="default-btn btn">Start your application<i class="flaticon-next"></i></a>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="estemate-form">
+<h3>Give Your Valuable Review Or Feedback</h3>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <input type="text" class="form-control" name="first_name" placeholder="Full Name" required>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Active Email" required>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <input type="text" class="form-control" name="phone" placeholder="Phone Number" required>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <textarea class="form-control" name="about" rows="5" placeholder="Message" required></textarea>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <button type="submit" class="default-btn btn">Send Message<i class="flaticon-paper-plane"></i></button>
+        </div>
+    </div>
+</form>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="academic-area pt-100 pb-70 bg-f4f6f9">
+<div class="container">
+<div class="section-title">
+<h2>Academics</h2>
+<p>From 11th and 12th class programs to diploma courses, nursing, and BTech degrees, our institution offers diverse academic opportunities to cater to varied interests and career goals.</p>
+</div>
+<div class="row justify-content-center">
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
+<div class="single-academics-card2 bg-1">
+<div class="serial">
+<p>01.</p>
+</div>
+<div class="academic-content">
+<div class="academic-top-content">
+<i class="flaticon-graduation"></i>
+<a href="academics-details.html"><h3>Undergraduate Education</h3></a>
+</div>
+<p>In "Undergraduate Education," students study different subjects like engineering, computer science, business, and more to get ready for their future jobs or further studies.</p>
+<a href="academics-details.html" class="read-more-btn white-color">Undergraduate Education<i class="flaticon-next"></i></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400" data-aos-once="true">
+<div class="single-academics-card2 bg-2">
+<div class="serial">
+<p>02.</p>
+</div>
+<div class="academic-content">
+<div class="academic-top-content">
+<i class="flaticon-graduation"></i>
+<a href="academics-details.html"><h3>Graduate Education</h3></a>
+</div>
+<p>"Graduate Education" provides advanced training and research opportunities through master's and doctoral programs, enabling students to specialize in their fields and advance their careers.</p>
+<a href="academics-details.html" class="read-more-btn white-color">Undergraduate Education<i class="flaticon-next"></i></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600" data-aos-once="true">
+<div class="single-academics-card2 bg-3">
+<div class="serial">
+<p>03.</p>
+</div>
+<div class="academic-content">
+<div class="academic-top-content">
+<i class="flaticon-graduation"></i>
+<a href="academics-details.html"><h3>Lifelong Learning</h3></a>
+</div>
+<p>"Lifelong Learning" supports continuous education and skill development throughout life, aiding personal growth and career advancement.</p>
+<a href="academics-details.html" class="read-more-btn white-color">Undergraduate Education<i class="flaticon-next"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="courses-area ptb-100">
+<div class="container">
+<div class="section-title">
+<h2>Free Courses</h2>
+<p>The college arranges free courses for students, and any updates are displayed here.</p>
+</div>
+<div class="courses-slider mb-20 owl-carousel owl-theme">
+<div class="single-courses-card style2">
+<div class="courses-img">
+<a href="courses-details.html"><img src="{%static 'assets/images/courses/courses-1.jpg'%}" alt="Image"></a>
+</div>
+<div class="courses-content">
+<div class="admin-profile">
+<img src="{%static 'assets/images/courses/admin-1.jpg'%}" alt="Image" class="round-image">
+<p>With <a href="courses-details.html">Vishal RAjguru</a></p>
+</div>
+<a href="courses-details.html"><h3>Master Python programming for effective data science applications and analysis, unlocking the potential of data-driven insights.</h3></a>
+<div class="bottom-content">
+<ul class="d-flex justify-content-between">
+<li>
+<ul>
+<li><i class="flaticon-graduation"></i>321</li>
+<li><i class="flaticon-bubble-chat"></i>1.2k</li>
+</ul>
+</li>
+<li><a href="#">Free</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-courses-card style2">
+<div class="courses-img">
+<a href="courses-details.html"><img src="{%static 'assets/images/courses/courses-2.jpg'%}" alt="Image"></a>
+</div>
+<div class="courses-content">
+<div class="admin-profile">
+<img src="{%static 'assets/images/courses/admin-2.jpg'%}" alt="Image" class="round-image">
+<p>With <a href="courses-details.html">Ragunath  Kolekar</a></p>
+</div>
+<a href="courses-details.html"><h3>"Discover our free courses covering body language and communication skills."</h3></a>
+<div class="bottom-content">
+<ul class="d-flex justify-content-between">
+<li>
+<ul>
+<li><i class="flaticon-graduation"></i>321</li>
+<li><i class="flaticon-bubble-chat"></i>1.2k</li>
+</ul>
+</li>
+<li><a href="#">Free</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-courses-card style2">
+<div class="courses-img">
+<a href="courses-details.html"><img src="{%static 'assets/images/courses/courses-3.jpg'%}" alt="Image"></a>
+</div>
+<div class="courses-content">
+<div class="admin-profile">
+<img src="{%static 'assets/images/courses/admin-3.jpg'%}" alt="Image" class="round-image">
+<p>With <a href="courses-details.html">Rohan Sharma</a></p>
+</div>
+<a href="courses-details.html"><h3>Enhance your interpersonal skills with our comprehensive behavior training courses and build positive relationships.</h3></a>
+<div class="bottom-content">
+<ul class="d-flex justify-content-between">
+<li>
+<ul>
+<li><i class="flaticon-graduation"></i>121</li>
+<li><i class="flaticon-bubble-chat"></i>1k</li>
+</ul>
+</li>
+<li><a href="#">Free</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-courses-card style2">
+<div class="courses-img">
+<a href="courses-details.html"><img src="{%static 'assets/images/courses/courses-1.jpg'%}" alt="Image"></a>
+</div>
+<div class="courses-content">
+<div class="admin-profile">
+<img src="{%static 'assets/images/courses/admin-1.jpg'%}" alt="Image" class="round-image" class="round-image">
+<p>With <a href="courses-details.html">Vishal RAjguru</a></p>
+</div>
+<a href="courses-details.html"><h3>Master Python programming for effective data science applications and analysis, unlocking the potential of data-driven insights.</h3></a>
+<div class="bottom-content">
+<ul class="d-flex justify-content-between">
+<li>
+<ul>
+<li><i class="flaticon-graduation"></i>301</li>
+<li><i class="flaticon-bubble-chat"></i>1.1k</li>
+</ul>
+</li>
+<li><a href="#">Free</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-courses-card style2">
+<div class="courses-img">
+<a href="courses-details.html"><img src="{%static 'assets/images/courses/courses-2.jpg'%}" alt="Image"></a>
+</div>
+<div class="courses-content">
+<div class="admin-profile">
+<img src="{%static 'assets/images/courses/admin-2.jpg'%}" alt="Image" class="round-image">
+<p>With <a href="courses-details.html">Avinash Ligade</a></p>
+</div>
+<a href="courses-details.html"><h3>Discover our free courses covering body language and communication skills.</h3></a>
+<div class="bottom-content">
+<ul class="d-flex justify-content-between">
+<li>
+<ul>
+<li><i class="flaticon-graduation"></i>309</li>
+<li><i class="flaticon-bubble-chat"></i>1.5k</li>
+</ul>
+</li>
+<li><a href="#">Free</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-courses-card style2">
+<div class="courses-img">
+<a href="courses-details.html"><img src="{%static 'assets/images/courses/courses-3.jpg'%}" alt="Image"></a>
+</div>
+<div class="courses-content">
+<div class="admin-profile">
+<img src="{%static 'assets/images/courses/instructor.jpg'%}" alt="Image" class="round-image">
+<p>With <a href="courses-details.html">Rohan Sharma</a></p>
+</div>
+<a href="courses-details.html"><h3>Enhance your interpersonal skills with our comprehensive behavior training courses and build positive relationships.</h3></a>
+<div class="bottom-content">
+<ul class="d-flex justify-content-between">
+<li>
+<ul>
+<li><i class="flaticon-graduation"></i>191</li>
+<li><i class="flaticon-bubble-chat"></i>882</li>
+</ul>
+</li>
+<li><a href="#">Free</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-courses-card style2">
+<div class="courses-img">
+<a href="courses-details.html"><img src="{%static 'assets/images/courses/courses-1.jpg'%}" alt="Image"></a>
+</div>
+<div class="courses-content">
+<div class="admin-profile">
+<img src="{%static 'assets/images/courses/admin-2.jpg'%}" alt="Image" class="round-image">
+<p>With <a href="courses-details.html">Sandip Kawale</a></p>
+</div>
+<a href="courses-details.html"><h3>Master Python programming for effective data science applications and analysis, unlocking the potential of data-driven insights.</h3></a>
+<div class="bottom-content">
+<ul class="d-flex justify-content-between">
+<li>
+<ul>
+<li><i class="flaticon-graduation"></i>231</li>
+<li><i class="flaticon-bubble-chat"></i>1k+</li>
+</ul>
+</li>
+<li><a href="#">Free</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="campus-life-area ptb-100 bg-f4f6f9">
+<div class="container">
+<div class="section-title">
+<h2>Campus Life</h2>
+<p>Discover Campus Life: Where careers flourish and passions are honored, shaping a bright future.</p>
+</div>
+<div class="campus-slider owl-carousel owl-theme">
+<div class="single-campus-card style2">
+<div class="img">
+<a href="campus-life.html"><img src="{%static 'assets/images/campus-life/campus-life-1.jpg'%}" alt="Image"></a>
+</div>
+<div class="campus-content">
+<span>01 Art & Culture</span>
+<a href="campus-life.html"><h3>Explore Art and Fashion, where every stroke and stitch unveils a unique narrative, echoing the spirit of individuality</h3></a>
+</div>
+</div>
+<div class="single-campus-card style2">
+<div class="img">
+<a href="campus-life.html"><img src="{%static 'assets/images/campus-life/campus-life-2.jpg'%}" alt="Image"></a>
+</div>
+<div class="campus-content">
+<span>02 Athletics & Fitness</span>
+<a href="campus-life.html"><h3>In the realm of Athletics, passion fuels performance, pushing boundaries and forging legacies.</h3></a>
+</div>
+</div>
+<div class="single-campus-card style2">
+<div class="img">
+<a href="campus-life.html"><img src="{%static 'assets/images/campus-life/campus-life-3.jpg'%}" alt="Image"></a>
+</div>
+<div class="campus-content">
+<span>03 Art & Culture</span>
+<a href="campus-life.html"><h3>Art and Fashion: Expressive realms where creativity knows no bounds, painting vivid stories on the canvas of life</h3></a>
+</div>
+</div>
+<div class="single-campus-card style2">
+<div class="img">
+<a href="campus-life.html"><img src="{%static 'assets/images/campus-life/campus-life-4.jpg'%}" alt="Image"></a>
+</div>
+<div class="campus-content">
+<span>04 Art & Culture</span>
+<a href="campus-life.html"><h3>Art and Fashion: Where the avant-garde meets tradition, creating a harmonious symphony of style and self-expression.</h3></a>
+</div>
+</div>
+<div class="single-campus-card style2">
+<div class="img">
+<a href="campus-life.html"><img src="{%static 'assets/images/campus-life/campus-life-3 .jpg'%}" alt="Image"></a>
+</div>
+<div class="campus-content">
+<span>05 Art & Culture</span>
+<a href="campus-life.html"><h3>Dive into the world of Art and Fashion, where innovation and aesthetics intertwine to redefine beauty</h3></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="admisssion-area ptb-100">
+<div class="container">
+<div class="admission-content">
+<div class="section-title">
+<h2>KIT Admission</h2>
+
+
+<p>Unlock your future with our seamless admission process tailored to your aspirations and potential.</p>
+</div>
+<div class="admission-image">
+<img src="{%static 'assets/images/admission/admission-2.jpg'%}" alt="Image">
+<div class="icon">
+<a class="popup-youtube play-btn" href="https://youtu.be/JBgVdgIX7vg?si=FTou6bnpK9w8v2_f"><i class="ri-play-fill"></i></a>
+</div>
+</div>
+<div class="query text-center">
+<a href="admission.html" class="default-btn btn">More on admission<i class="flaticon-next"></i></a>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+{% comment %} 
+<div class="health-care-area ptb-100 bg-f4f6f9">
+<div class="container">
+<div class="section-title">
+<h2>Health Care</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis </p>
+</div>
+<div class="row justify-content-center">
+<div class="col-lg-6 col-md-6">
+<div class="single-health-care-card style1">
+<div class="img">
+<a href="health-care-details.html"><img src="{%static 'assets/images/health-care/health-care-4.jpg'%}" alt="Image"></a>
+</div>
+<div class="health-care-content">
+<a href="health-care-details.html"><h3>Happiness Begins With Good Health</h3></a>
+<p>Lorem ipsum dolor sit amet con sec teturo adip iscing elit sed do eiusmod tempor insi didunt ut labore et dolore</p>
+<a href="health-care.html" class="read-more-btn">Read More on healthcare<i class="flaticon-next"></i></a>
+</div>
+</div>
+</div>
+<div class="col-lg-6 col-md-6">
+<div class="single-health-care-card style2">
+<div class="img">
+<a href="health-care-details.html"><img src="{%static 'assets/images/health-care/health-care-2.jpg'%}" alt="Image"></a>
+</div>
+<div class="health-care-content">
+<a href="health-care-details.html"><h3>When Life Depends On Medical Technology</h3></a>
+<p>Lorem ipsum dolor sit amet con sec teturo adip iscing elit sed do eiusmod tempor insi didunt ut labore et dolore</p>
+<a href="health-care.html" class="read-more-btn">Read More on healthcare<i class="flaticon-next"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="more-health-care style2 text-center">
+<p>Select From Hundreds of Options. <a href="health-care.html" class="read-more-btn active">More on healthcare<i class="flaticon-next"></i></a></p>
+</div>
+</div>
+</div> {% endcomment %}
+
+
+<div id='/message/event' class="events-area ptb-100">
+<div class="container">
+<div class="section-title">
+<h2>Events</h2>
+<p>College events: A vibrant tapestry of culture, knowledge, and camaraderie, enriching campus life </p>
+</div>
+<div class="events-slider mb-20 owl-carousel owl-theme">
+<div class="single-events-card style2">
+<div class="events-image">
+<a href="events/"><img src="{%static 'assets/images/events/events-1.jpg'%}" alt="Image"></a>
+</div>
+<div class="events-content">
+<a href="events/"><h3>Master the art of planning and facilitating effective meetings to drive productivity and collaboration.</h3></a>
+<div class="admin-and-date">
+<ul class="d-flex justify-content-between">
+<li>
+<p><a href="events/"><i class="flaticon-student-with-graduation-cap"></i>Ajit Kumar</a></p>
+</li>
+<li>
+<p><a href="events/"><i class="flaticon-clock"></i>Feb 01,2024</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-events-card style2">
+<div class="events-image">
+<a href="events/"><img src="{%static 'assets/images/events/events-2.jpg'%}" alt="Image"></a>
+</div>
+<div class="events-content">
+<a href="events/"><h3>karmayogi institute of technology ruturang 2024</h3></a>
+<div class="admin-and-date">
+<ul class="d-flex justify-content-between">
+<li>
+<p><a href="events/"><i class="flaticon-student-with-graduation-cap"></i>Ajit Kumar</a></p>
+</li>
+<li>
+<p><a href="events/"><i class="flaticon-clock"></i>Feb 16,2024</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-events-card style2">
+<div class="events-image">
+<a href="events/"><img src="{%static 'assets/images/events/events-4.jpg'%}" alt="Image"></a>
+</div>
+<div class="events-content">
+<a href="events/"><h3>Saturday Night Concert In Lake View,Pandharpur City</h3></a>
+<div class="admin-and-date">
+<ul class="d-flex justify-content-between">
+<li>
+<p><a href="events/"><i class="flaticon-student-with-graduation-cap"></i>Ajit Kumar</a></p>
+</li>
+<li>
+<p><a href="events/"><i class="flaticon-clock"></i>Feb 16,2024</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-events-card style2">
+<div class="events-image">
+<a href="events/"><img src="{%static 'assets/images/events/events-3.jpg'%}" alt="Image"></a>
+</div>
+<div class="events-content">
+<a href="events/"><h3>Master the art of planning and facilitating effective meetings to drive productivity and collaboration.</h3></a>
+<div class="admin-and-date">
+<ul class="d-flex justify-content-between">
+<li>
+<p><a href="events/"><i class="flaticon-student-with-graduation-cap"></i>Ajit Kumar</a></p>
+</li>
+<li>
+<p><a href="events/"><i class="flaticon-clock"></i>Feb 16,2024</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-events-card style2">
+<div class="events-image">
+<a href="events/"><img src="{%static 'assets/images/events/events-5.jpg'%}" alt="Image"></a>
+</div>
+<div class="events-content">
+<a href="events/"><h3>karmayogi institute of technology ruturang 2024</h3></a>
+<div class="admin-and-date">
+<ul class="d-flex justify-content-between">
+<li>
+<p><a href="events/"><i class="flaticon-student-with-graduation-cap"></i>Ajit Kumar</a></p>
+</li>
+<li>
+<p><a href="events/"><i class="flaticon-clock"></i>Feb 16,2024</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-events-card style2">
+<div class="events-image">
+<a href="events/"><img src="{%static 'assets/images/events/events-6.jpg'%}" alt="Image"></a>
+</div>
+<div class="events-content">
+<a href="events/"><h3>Master the art of planning and facilitating effective meetings to drive productivity and collaboration.</h3></a>
+<div class="admin-and-date">
+<ul class="d-flex justify-content-between">
+<li>
+<p><a href="events/"><i class="flaticon-student-with-graduation-cap"></i>Ajit Kumar</a></p>
+</li>
+<li>
+<p><a href="events/"><i class="flaticon-clock"></i>Feb 17,2024</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="single-events-card style2">
+<div class="events-image">
+<a href="events/"><img src="{%static 'assets/images/events/events-7.jpg'%}" alt="Image"></a>
+</div>
+<div class="events-content">
+<a href="events/"><h3>Master the art of planning and facilitating effective meetings to drive productivity and collaboration.</h3></a>
+<div class="admin-and-date">
+<ul class="d-flex justify-content-between">
+<li>
+<p><a href="events/"><i class="flaticon-student-with-graduation-cap"></i>Ajit Kumar</a></p>
+</li>
+<li>
+<p><a href="events/"><i class="flaticon-clock"></i>Feb 01,2024</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% comment %} 
+
+<div class="students-stories-area pt-100 pb-70">
+<div class="container">
+<div class="section-title">
+<h2>Check Student stories</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis </p>
+</div>
+<div class="row justify-content-center">
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
+<div class="single-stories-card style2">
+<div class="stories-content">
+<h3>Why I Choose Sanu_Freshman Student</h3>
+</div>
+<iframe src="https://www.youtube.com/embed/dT9uXvsH6EU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400" data-aos-once="true">
+<div class="single-stories-card style2">
+<div class="stories-content">
+<h3>Why I choose Sanu University And Teachers</h3>
+</div>
+<iframe src="https://www.youtube.com/embed/TM9gjl-8X-E" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600" data-aos-once="true">
+<div class="single-stories-card style2">
+<div class="stories-content">
+<h3>Why I choose Sanu Campus And Environment</h3>
+</div>
+<iframe src="https://www.youtube.com/embed/yeZpJ6lJC54" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div> {% endcomment %}
+
+
+<div class="lates-news-area ptb-100 bg-f4f6f9">
+<div class="container">
+<div class="section-title">
+<h2>Latest News</h2>
+<p>happy to inform and note that today's lates or last latest news want to share you</p>
+</div>
+<div class="news-slider owl-carousel owl-theme">
+<div class="single-news-card style2">
+<div class="news-img">
+<a href="news-details.html"><img src="{%static 'assets/images/news/news-1.jpg'%}" alt="Image"></a>
+</div>
+<div class="news-content">
+<div class="list">
+<ul>
+<li><i class="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+<li><i class="flaticon-tag"></i>Social Sciences</li>
+</ul>
+</div>
+<a href="news-details.html"><h3>Master the art of planning and facilitating effective meetings to drive productivity and collaboration.</h3></a>
+<a href="news-details.html" class="read-more-btn">read More<i class="flaticon-next"></i></a>
+</div>
+</div>
+<div class="single-news-card style2">
+<div class="news-img">
+<a href="news-details.html"><img src="{%static 'assets/images/news/news-2.jpg'%}" alt="Image"></a>
+</div>
+<div class="news-content">
+<div class="list">
+<ul>
+<li><i class="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+<li><i class="flaticon-tag"></i>Social Sciences</li>
+</ul>
+</div>
+<a href="news-details.html"><h3>How To Use Technology To Adapt Your Talent To The World</h3></a>
+<a href="news-details.html" class="read-more-btn">read More<i class="flaticon-next"></i></a>
+</div>
+</div>
+<div class="single-news-card style2">
+<div class="news-img">
+<a href="news-details.html"><img src="{%static 'assets/images/news/news-3.jpg'%}" alt="Image"></a>
+</div>
+<div class="news-content">
+<div class="list">
+<ul>
+<li><i class="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+<li><i class="flaticon-tag"></i>Social Sciences</li>
+</ul>
+</div>
+<a href="news-details.html"><h3>Here Are The Things To Look For When Selecting Course</h3></a>
+<a href="news-details.html" class="read-more-btn">read More<i class="flaticon-next"></i></a>
+</div>
+</div>
+<div class="single-news-card style2">
+<div class="news-img">
+<a href="news-details.html"><img src="{%static 'assets/images/news/news-1.jpg'%}" alt="Image"></a>
+</div>
+<div class="news-content">
+<div class="list">
+<ul>
+<li><i class="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+<li><i class="flaticon-tag"></i>Social Sciences</li>
+</ul>
+</div>
+<a href="news-details.html"><h3>Master the art of planning and facilitating effective meetings to drive productivity and collaboration.</h3></a>
+<a href="news-details.html" class="read-more-btn">read More<i class="flaticon-next"></i></a>
+</div>
+</div>
+<div class="single-news-card style2">
+<div class="news-img">
+<a href="news-details.html"><img src="{%static 'assets/images/news/news-2.jpg'%}" alt="Image"></a>
+</div>
+<div class="news-content">
+<div class="list">
+<ul>
+<li><i class="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+<li><i class="flaticon-tag"></i>Social Sciences</li>
+</ul>
+</div>
+<a href="news-details.html"><h3>Master the art of planning and facilitating effective meetings to drive productivity and collaboration.</h3></a>
+<a href="news-details.html" class="read-more-btn">read More<i class="flaticon-next"></i></a>
+</div>
+</div>
+<div class="single-news-card style2">
+<div class="news-img">
+<a href="news-details.html"><img src="{%static 'assets/images/news/news-3.jpg'%}" alt="Image"></a>
+</div>
+<div class="news-content">
+<div class="list">
+<ul>
+<li><i class="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+<li><i class="flaticon-tag"></i>Social Sciences</li>
+</ul> 
+</div>
+<a href="news-details.html"><h3>Master the art of planning and facilitating effective meetings to drive productivity and collaboration.</h3></a>
+<a href="news-details.html" class="read-more-btn">read More<i class="flaticon-next"></i></a>
+</div>
+</div>
+<div class="single-news-card style2">
+<div class="news-img">
+<a href="news-details.html"><img src="{%static 'assets/images/news/news-2.jpg'%}" alt="Image"></a>
+</div>
+<div class="news-content">
+<div class="list">
+<ul>
+<li><i class="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+<li><i class="flaticon-tag"></i>Social Sciences</li>
+</ul>
+</div>
+<a href="news-details.html"><h3>Master the art of planning and facilitating effective meetings to drive productivity and collaboration.</h3></a>
+<a href="news-details.html" class="read-more-btn">read More<i class="flaticon-next"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<p>Visitor Count: {{ visitor_count.count }}</p>
+
+<div class="footer-area pt-100 pb-70">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-sm-6">
+<div class="footer-logo-area">
+<a href="index-5.html"><img src="{%static 'assets/images/kit logo white.png'%}" alt="Image"></a>
+<p>Karmayogi Engineering College, Shelve, Pandharpur, Pandharpur, India, Maharashtra</p>
+<div class="contact-list">
+<ul>
+<li><a href="tel:+919172353945">+91-9172353945
+</a></li>
+<li><a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#8eefeae3e7e0cefdefe0fba0ebeafb"><span class="__cf_email__" data-cfemail="accdc8c1c5c2ecdfcdc2d982c9c8d9">[email&#160;protected]</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-sm-6">
+<div class="footer-widjet">
+<h3>Campus Life</h3>
+<div class="list">
+<ul>
+<li><a href="campus-life.html">Accessibility</a></li>
+<li><a href="campus-life.html">Financial Aid</a></li>
+<li><a href="campus-life.html">Food Services</a></li>
+<li><a href="campus-life.html">Housing</a></li>
+<li><a href="campus-life.html">Information Technologies</a></li>
+<li><a href="campus-life.html">Student Life</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-sm-6">
+<div class="footer-widjet">
+<h3>Our Campus</h3>
+<div class="list">
+<ul>
+<li><a href="campus-life.html">Acedemic</a></li>
+<li><a href="campus-life.html">Planning & AdminiStartion</a></li>
+<li><a href="campus-life.html">Campus Safety</a></li>
+<li><a href="campus-life.html">Office of the Chancellor</a></li>
+<li><a href="campus-life.html">Facility Services</a></li>
+<li><a href="campus-life.html">Human Resources</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-2 col-sm-6">
+<div class="footer-widjet"> 
+<h3>Academics</h3>
+<div class="list">
+<ul>
+<li><a href="academics.html"> Courses</a></li>
+<li><a href="academics.html">Projects</a></li>
+<li><a href="academics.html">Research</a></li>
+<li><a href="academics.html">Workshops</a></li>
+<li><a href="academics.html">Subjects</a></li>
+<li><a href="academics.html">Major Projects</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="shape">
+<img src="{%static 'assets/images/shape-1.png'%}" alt="Image">
+</div>
+</div>
+</div>
+
+
+<div class="copyright-area">
+<div class="container">
+<div class="copyright">
+<div class="row">
+<div class="col-lg-6 col-md-4">
+<div class="social-content">
+<ul>
+<li><span>Follow Us On</span></li>
+<li>
+<a href="https://www.facebook.com/kecsp/" target="_blank"><i class="ri-facebook-fill"></i></a>
+</li>
+<li>
+<a href="https://www.facebook.com/kecsp/" target="_blank"><i class="ri-twitter-fill"></i></a>
+</li>
+<li>
+<a href="https://www.facebook.com/kecsp/" target="_blank"><i class="ri-instagram-line"></i></a>
+</li>
+<li>
+<a href="https://www.facebook.com/kecsp/" target="_blank"><i class="ri-linkedin-fill"></i></a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-6 col-md-8">
+<div class="copy">
+<p>© This website made by <a href="https://mipashyayalmar.github.io/-Profile-data/" target="_blank">Mipashya</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="go-top">
+<i class="ri-arrow-up-s-line"></i>
+<i class="ri-arrow-up-s-line"></i>
+</div>
+
+
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{%static 'assets/js/jquery.min.js'%}"></script>
+
+<script src="{%static 'assets/js/bootstrap.bundle.min.js'%}"></script>
+
+<script src="{%static 'assets/js/jquery.meanmenu.js'%}"></script>
+
+<script src="{%static 'assets/js/owl.carousel.min.js'%}"></script>
+
+<script src="{%static 'assets/js/carousel-thumbs.min.js'%}"></script>
+
+<script src="{%static 'assets/js/jquery.magnific-popup.js'%}"></script>
+
+<script src="{%static 'assets/js/aos.js'%}"></script>
+
+<script src="{%static 'assets/js/odometer.min.js'%}"></script>
+
+<script src="{%static 'assets/js/appear.min.js'%}"></script>
+
+<script src="{%static 'assets/js/form-validator.min.js'%}"></script>
+
+<script src="{%static 'assets/js/contact-form-script.js'%}"></script>
+
+<script src="{%static 'assets/js/ajaxchimp.min.js'%}"></script>
+
+<script src="{%static 'assets/js/custom.js'%}"></script>
+<!-- for alumini photos revies -->
+<style>
+.round-image {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover; 
+}
+.updates{
+    background-color: transparent;
+}
+
+.updates select {
+    background-color: transparent;
+    border: 1px solid green; 
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: Algerian; 
+  } 
+</style>
+</body>
+
+</html>
+<!-- home.html -->
